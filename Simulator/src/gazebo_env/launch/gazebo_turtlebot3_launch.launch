@@ -1,0 +1,23 @@
+<launch>
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="headless" default="true" />
+  <arg name="world_name" default="$(find gazebo_env)/worlds/BARN/world_0.world" />
+  <arg name="turtlebot3_model" default="burger" />
+
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="model" value="$(arg turtlebot3_model)" />
+    <arg name="x_pos" default="-2.0"/>
+    <arg name="y_pos" default="3.0"/>
+    <arg name="z_pos" default="0.0"/>
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node pkg="gazebo_env" type="collision_publisher_node" name="collision_publisher_node">
+	<param name="robot_name" value="turtlebot3_$(arg turtlebot3_model)" />
+  </node>
+
+</launch>

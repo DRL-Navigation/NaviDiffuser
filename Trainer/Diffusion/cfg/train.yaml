@@ -1,0 +1,38 @@
+Dataset:
+  path: "mongodb://localhost:27017/"
+  batch: 256
+  CollateFN:
+    history_max_len: 4
+    future_max_len: 4
+    exp_sample_num: 4
+    reward_max: [10.0, 10.0, 10.0]
+    reward_min: [0.0, 0.0, 0.0]
+    up_reward_topk: 0.1
+
+Network:
+  num_encoder: 6
+  num_decoder: 4
+  token_dim: 768
+  num_heads: 12
+  dropout: 0.01
+  checkpoint: True
+
+Optim:
+  lr: 0.00001
+  weight_decay: 0.0001
+  warm_up: 10000
+
+Diffusion:
+  timesteps: 20
+  beta_schedule: "cosine"
+  ddim_discr_method: "linear"
+  ddim_timesteps: 10
+  ddim_eta: 0.0
+  guide_dropout: 0.2
+  guide_w: 2
+
+Train:
+  name: "model"
+  epoch: 200000
+  grad_norm_clip:
+  fine_tune:

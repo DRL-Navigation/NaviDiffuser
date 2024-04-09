@@ -1,0 +1,34 @@
+<launch>
+  <node pkg="scan_img" type="scan_img_node" name="scan_image" output="screen">
+    <param name="old_weight" value="false" />
+    <param name="goal_tolerance" value="0.3" />
+    <param name="laser_topic" value="/scan" />
+    <param name="image_topic" value="/scan_image"  />
+    <param name="map_topic" value="/scan_map"  />
+    <param name="state_topic" value="/state"  />
+    <param name="img_state_topic" value="/img_state"  />
+    <param name="min_dist_topic" value="/min_dist"  />
+    <param name="base_frame" value="base_link" />
+    <param name="laser_frame" value="laser_link" />
+    <param name="goal_topic" value="/local_goal" />
+    <param name="robot_name" value="turtlebot" />
+    <param name="angle_min" value="-1.8" />
+    <param name="angle_max" value="1.8" />
+    <param name="min_dist_angle_min" value="-1.75" />
+    <param name="min_dist_angle_max" value="1.75" />
+    <param name="env_type" value="real" />
+    <param name="image_width" value="120" />
+    <param name="image_height" value="120" />
+    <param name="resolution" value="0.05" />
+    <param name="collision_th" value="0.2" />
+    <param name="laser_base_offset" value="0.0" />
+    <param name="thread_total" value="1" />
+    <param name="laser_scan_total" value="721" />
+    <param name="is_rectangle" value="false" />
+    <param name="bool_subtraction" value="true" />
+    <!--  contour of robots, only for circular and rectangle robot-->
+    <param name="double_contour_x" value="0.17" />
+    <param name="double_contour_y" value="0.17" />
+
+  </node>
+</launch>

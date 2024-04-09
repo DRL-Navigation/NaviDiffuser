@@ -1,0 +1,45 @@
+TemporalUnet:
+  horizon: 16
+  transition_dim: 965
+
+ValueFunction:
+  horizon: 16
+  transition_dim: 965
+  out_dim: 1
+
+GaussianDiffusion:
+  horizon: 16
+  observation_dim: 963
+  action_dim: 2
+  n_timesteps: 20
+  action_weight: 10
+  loss_weights: 
+  loss_discount: 1.0
+  predict_epsilon: False
+  loss_type: 'l2'
+
+ValueDiffusion:
+  horizon: 16
+  observation_dim: 963
+  action_dim: 2
+  n_timesteps: 20
+  action_weight: 10
+  loss_weights: 
+  loss_discount: 1.0
+  predict_epsilon: False
+  loss_type: 'value_l2'
+
+Dataset:
+  path: "mongodb://localhost:27019/"
+  batch: 256
+  CollateFN:
+    horizon: 16
+  ValueCollateFN:
+    horizon: 16
+
+Trainer:
+  train_batch_size: 256
+  save_freq: 1000
+  results_folder: './output/H16_T20_value_weight'
+
+n_train_steps: 50000
