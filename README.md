@@ -1,15 +1,20 @@
 # NaviDiffuser
-**NaviDiffuser: Tackling Multi-Objective Robot Navigation by Diffusion Model Decision-Making**            
-Xuyang Zhang, Ziyang Feng, Quecheng Qiu, Jie Peng, Haoyu Li, and Jianmin Ji
 
-This is the open-source repo for our thesis.
+This is the open-source repo for our thesis:
 
-## Dataset Discussion
+**<center>NaviDiffuser: Tackling Multi-Objective Robot Navigation by Diffusion Model Decision-Making</center>**            
+<center>Xuyang Zhang, Ziyang Feng, Quecheng Qiu, Jie Peng, Haoyu Li, and Jianmin Ji</center>
 
-We used the dataset created by PPO policy in our work. It is noted that the PPO dataset can be replaced and it is recommended to use the dataset with a wider and more uniform distribution. We used it just because it is enough for training and is easy to build.
+## Overview
 
-We show the distribution of reward vectors in the PPO dataset here: 
-![Density in $r_g$-$r_o$ plane](./markdown/rgro.png)
-![Density in $r_o$-$r_s$ plane](./markdown/rors.png)
-![Density in $r_s$-$r_g$ plane](./markdown/rgrs.png)
-To be honest, the distribution is not uniform. The values of $r_o$ are mainly around 4. Most $r_s$ are located in $\left[6, 10\right]$. And the values of $r_g$ are mainly located in $\left[0, 8\right]$. However, for any reward vector value, there are some data to cover it with about 0.02 density. These data are created by the totally random data-collecting environment and are all we need to train our approach.
+The data-driven paradigm has recently shown great potential in solving many planning tasks. In the robot navigation realm, it sparked a new trend. People believe powerful data-driven methods can learn efficient and general navigation policies. 
+
+However, robot navigation tasks differ from common planning tasks and present unique challenges. They often involve multi-objective optimization and need to meet complex and ever-changing human preferences in real-world applications. 
+
+Furthermore, effective navigation requires a durable action sequence output to overcome short-sightedness and a high planning frequency to respond to environment changes. Both are challenging for data-driven methods. 
+
+In this work, we integrate the diffusion model into robot navigation to address these challenges. Our proposed approach, NaviDiffuser, utilizes Classifier Guidance Diffusion Model for multi-objective solving and Transformer backbone for long-horizon planning. It also includes distillation skills to achieve high planning frequency and output quality. 
+
+We have conducted experiments in both simulated and real-world scenarios to evaluate our approach. The results indicate that NaviDiffuser can produce diverse navigation policies that align with human preferences when maintaining a high arrival rate.
+
+![real-world example](./doc/real_world.jpeg)
