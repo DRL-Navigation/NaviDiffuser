@@ -2,7 +2,7 @@
 
 This is the open-source repo for:
 
-**<center>NaviDiffuser: Tackling Multi-Objective Robot Navigation by Classifier-Guided Diffusion Model</center>**            
+**<center>NaviDiffuser: Tackling Multi-Objective Robot Navigation by Weight Range Diffusion Model</center>**            
 <center>Xuyang Zhang, Ziyang Feng, Quecheng Qiu, Jie Peng, Haoyu Li, and Jianmin Ji</center>
 
 ## Overview
